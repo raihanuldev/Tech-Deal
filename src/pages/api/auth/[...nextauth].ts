@@ -2,7 +2,7 @@ import NextAuth from "next-auth"
 import GithubProvider, { GithubProfile } from "next-auth/providers/github"
 import { signIn } from "next-auth/react"
 
-interface gihtubProviderOPtions{
+interface gihtubProviderOptions{
   clientId:string;
   clientSecret:string;
 }
@@ -14,7 +14,7 @@ export const authOptions = {
     GithubProvider<GithubProfile>({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
-    } as gihtubProviderOPtions),
+    } as gihtubProviderOptions),
     
     // ...add more providers here
   ],
