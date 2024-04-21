@@ -1,41 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-Shop
 
-## Getting Started
+E-Shop is an Online Shop Web Application that facilitates buying and selling products. It provides a platform for buyers to browse and purchase products, sellers to add new products, and administrators to manage users, products, and payments.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Buyer Features:**
+  - Browse products
+  - Add products to cart
+  - View cart and proceed to checkout
+  - Make payments using various payment methods (Bkash, Nagad, Rocket, Upai)
+  - View order history
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Seller Features:**
+  - Add new products
+  - Update existing products
+  - View sales reports
+  - Manage orders
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- **Admin Features:**
+  - View all products
+  - Manage users (e.g., block/unblock users)
+  - Handle payments
+  - View and manage orders
+  
+## Technologies Used
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- **Frontend:**
+  - TypeScript
+  - Next.js
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- **Backend:**
+  - Node.js
+  - Express.js
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Database:**
+  - MongoDB
 
-## Learn More
+## Payment Gateways
 
-To learn more about Next.js, take a look at the following resources:
+- Bkash
+- Nagad
+- Rocket
+- Upai
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone the repository: `git clone https://github.com/raihanuldev/E-Shop.git`
+2. Navigate to the project directory: `cd E-Shop`
+3. Install dependencies:
+   - For frontend: `cd frontend && npm install`
+   - For backend: `cd backend && npm install`
+4. Set up environment variables:
+   - Create a `.env` file in the backend directory and add necessary environment variables (e.g., MongoDB connection string, payment gateway credentials)
+5. Start the backend server: `cd backend && npm start`
+6. Start the frontend server: `cd frontend && npm run dev`
 
-## Deploy on Vercel
+## Contributors
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Raihanul Islam](https://github.com/raihanuldev)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-"# E-Shop" 
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
