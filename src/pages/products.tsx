@@ -13,7 +13,7 @@ const ProductsPage: NextPage = () => {
           <div className="rounded-2xl mx-4 mt-2 shadow-md hover:shadow-lg border-t-4 h-full border-[#3f0a70] cursor-pointer transition-all duration-300 p-5 text-left  ">
             
             <Image
-              className="w-[250px] rounded-2xl  "
+              className="w-[300px] h-[250px] rounded-2xl  "
               src="https://static-01.daraz.com.bd/p/9fa4b52503b23ad2cb33bfb2e3ed23aa.png"
               alt=""
               unoptimized
