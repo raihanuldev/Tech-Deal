@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "json-server": "json-server --watch fakedb.json --port 5000",
     "lint": "next lint"
   },
   "dependencies": {
+    "json-server": "^1.0.0-alpha.23",
     "next": "14.2.2",
     "next-auth": "^4.24.7",
     "react": "^18",

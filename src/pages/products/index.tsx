@@ -3,7 +3,8 @@ import { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 
-const ProductsPage: NextPage = () => {
+const ProductsPage: NextPage = ({products}) => {
+  console.log(products);
   const [btnDisable, setbtnDisable] = useState<boolean>(true);
   return (
     <div className="md:px-10 bg-[#f9f6fd] h-screen">
@@ -36,3 +37,14 @@ const ProductsPage: NextPage = () => {
 };
 
 export default ProductsPage;
+
+
+export const getStaticProps =async()=>{
+  const res = await fetch('db.json');
+  const data = await res.json();
+  return {
+    props:{
+      products:data
+    }
+  }
+}
