@@ -24,12 +24,21 @@ const ProductsPage: NextPage<{products:productInterface}> = ({products  }) => {
 export default ProductsPage;
 
 
-export const getStaticProps =async()=>{
-  const res = await fetch('http://localhost:5000/products');
-  const data:productInterface[] = await res.json();
-  return {
-    props:{
-      products:data
-    }
+export const getStaticProps = async () => {
+  try {
+    const res = await fetch('http://localhost:5000/products');
+    const data: productInterface[] = await res.json();
+    return {
+      props: {
+        products: data
+      }
+    };
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    return {
+      props: {
+        products: [] // Return an empty array or handle the error appropriately
+      }
+    };
   }
-}
+};
