@@ -14,7 +14,7 @@ const ProductsPage: NextPage<{products:productInterface}> = ({products  }) => {
       {/* simple Cart static */}
       <div className="grid md:grid-cols-3">
         {
-          products.map((product:productInterface) => <ProductCard key={product.id} product={product}/>)
+          products.map((product) => <ProductCard key={product.id} product={product}/>)
         }
       </div>
     </div>
@@ -26,7 +26,7 @@ export default ProductsPage;
 
 export const getStaticProps =async()=>{
   const res = await fetch('http://localhost:5000/products');
-  const data = await res.json();
+  const data:productInterface[] = await res.json();
   return {
     props:{
       products:data
