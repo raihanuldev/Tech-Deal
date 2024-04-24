@@ -27,6 +27,7 @@ export default ProductsPage;
 export const getStaticProps = async () => {
   try {
     const res = await fetch('http://localhost:5000/products');
+    // const res = await fetch('fakedb.json');
     const data: productInterface[] = await res.json();
     return {
       props: {

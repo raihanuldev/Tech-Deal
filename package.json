@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "json-server": "^1.0.0-alpha.23",
     "next": "14.2.2",
     "next-auth": "^4.24.7",
