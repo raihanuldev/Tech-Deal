@@ -4,7 +4,7 @@ export interface productInterface {
     id:string,
     seller: string,
     _id:string,
-    verified:boolean,
+    verified:string,
     resalePrice:number,
     originalPrice:number,
     used:number,
