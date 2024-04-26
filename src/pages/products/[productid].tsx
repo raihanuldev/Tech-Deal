@@ -4,16 +4,24 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 
-const Product: NextPage = () => {
+const Product: NextPage = (product) => {
   const router = useRouter();
   const { productid } = router.query;
   console.log(router);
+  console.log(product);
   const user = true;
   return (
     <div>
       <div className="lg:flex gap-16 items-center bg-[#eee9f4] p-10">
         <div className="lg:w-4/12 p-5">
-          <Image className=" lg:mx-auto" src="https://m.media-amazon.com/images/I/51QG+K5RQtL._AC_SL1100_.jpg" alt="w" width={100} height={100} unoptimized />
+          <Image
+            className=" lg:mx-auto"
+            src="https://m.media-amazon.com/images/I/51QG+K5RQtL._AC_SL1100_.jpg"
+            alt="w"
+            width={100}
+            height={100}
+            unoptimized
+          />
         </div>
         <div className="lg:w-7/12 text-left">
           <h1 className="lg:text-2xl text-lg">HPPPPP</h1>
@@ -91,12 +99,8 @@ const Product: NextPage = () => {
             )} */}
           </div>
           <hr />
-          <h1 className="text-xl font-bold text-[#ff6801] pt-5">
-            $41
-          </h1>
-          <span className="text-sm line-through  text-gray-400">
-            $100
-          </span>
+          <h1 className="text-xl font-bold text-[#ff6801] pt-5">$41</h1>
+          <span className="text-sm line-through  text-gray-400">$100</span>
           <span className="text-sm pl-2  text-gray-800">-4%</span>
 
           <div className="flex items-center gap-2 py-5">
@@ -134,10 +138,7 @@ const Product: NextPage = () => {
             )}
           </div>
           {user && (
-            <button
-              className="bg-gray-300 text-xs px-1 rounded-sm"
-              
-            >
+            <button className="bg-gray-300 text-xs px-1 rounded-sm">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -168,3 +169,32 @@ const Product: NextPage = () => {
 };
 
 export default Product;
+
+// Corrected getStaticPaths function
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await fetch("http://localhost:5000/products");
+  const products = await res.json();
+  const paths = products.map((product: { _id: string }) => ({
+    params: { productid: product._id },
+  }));
+  return { paths, fallback: false };
+};
+
+// Corrected getStaticProps function
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { params } = context;
+  const productid = params?.productid as string;
+  
+  if (!productid) {
+    throw new Error('Invalid product id');
+  }
+  
+  const res = await fetch(`http://localhost:5000/products/${productid}`);
+  const product = await res.json();
+
+  return {
+    props: {
+      product
+    },
+  };
+};
