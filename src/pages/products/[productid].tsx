@@ -173,7 +173,7 @@ export default Product;
 
 //  getStaticPaths function
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch("http://localhost:5000/products");
+  const res = await fetch("https://tech-deal-backend-o5ta.vercel.app/products");
   const products = await res.json();
   const paths = products.map((product: { _id: string }) => ({
     params: { productid: product._id},
@@ -190,7 +190,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       throw new Error('Invalid product id');
     }
     
-    const res = await fetch(`http://localhost:5000/products/${productid}`);
+    const res = await fetch(`https://tech-deal-backend-o5ta.vercel.app/products/${productid}`);
     if (!res.ok) {
       throw new Error('Failed to fetch product');
     }
