@@ -171,12 +171,12 @@ const Product: NextPage<{product: productInterface}> = ({product}) => {
 
 export default Product;
 
-// Corrected getStaticPaths function
+//  getStaticPaths function
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch("http://localhost:5000/products");
   const products = await res.json();
   const paths = products.map((product: { _id: string }) => ({
-    params: { productid: product._id },
+    params: { productid: product._id.toString()},
   }));
   return { paths, fallback: false };
 };
@@ -205,7 +205,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   } catch (error) {
     console.error('Error fetching product:', error);
     return {
-      notFound: true, // Return 404 page
+      notFound: true, 
     };
   }
 };
