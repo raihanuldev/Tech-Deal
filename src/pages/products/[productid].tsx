@@ -3,8 +3,9 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
+import { productInterface } from "@/interface/ProductInterface";
 
-const Product: NextPage = ({product}) => {
+const Product: NextPage<{product: productInterface}> = ({product}) => {
   const router = useRouter();
   const { productid } = router.query;
   console.log(router);
