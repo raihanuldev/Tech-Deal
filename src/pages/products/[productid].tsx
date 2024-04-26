@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 
-const Product: NextPage = (product) => {
+const Product: NextPage = ({product}) => {
   const router = useRouter();
   const { productid } = router.query;
   console.log(router);
@@ -12,19 +12,19 @@ const Product: NextPage = (product) => {
   const user = true;
   return (
     <div>
-      <div className="lg:flex gap-16 items-center bg-[#eee9f4] p-10">
+      <div className="lg:flex gap-16 items-center bg-[#f5f5f5] p-10">
         <div className="lg:w-4/12 p-5">
           <Image
-            className=" lg:mx-auto"
-            src="https://m.media-amazon.com/images/I/51QG+K5RQtL._AC_SL1100_.jpg"
-            alt="w"
-            width={100}
-            height={100}
+            className=" lg:mx-auto bg-[#eee9f4] rounded-lg"
+            src={product.img}
+            alt="product Image"
+            width={600}
+            height={200}
             unoptimized
           />
         </div>
         <div className="lg:w-7/12 text-left">
-          <h1 className="lg:text-2xl text-lg">HPPPPP</h1>
+          <h1 className="lg:text-2xl text-lg">{product.model}</h1>
           <div className="flex items-center justify-start gap-2 py-2">
             <div className="rating w-16 pointer-events-none">
               <input
@@ -54,19 +54,19 @@ const Product: NextPage = (product) => {
                 className="mask mask-star-2 bg-orange-400"
               />
             </div>
-            <span className="text-sm text-center">(282 ratings)</span>
+            <span className="text-sm text-center">(150 ratings)</span>
           </div>
           <div className="pb-1">
             <span>Category: </span>
-            <span>hp</span>
+            <span>{product.category}</span>
           </div>
           <div className="pb-2">
             <span>Seller: </span>
-            <span> Mr.ksd</span>
+            <span>{product.seller}</span>
           </div>
           <div className="pb-2">
             <span>Verified:</span>
-            {/* {details[0]?.verified === "true" ? (
+            {product?.verified === "true" ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="#1c9cea"
@@ -96,11 +96,11 @@ const Product: NextPage = (product) => {
                   d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
                 />
               </svg>
-            )} */}
+            )}
           </div>
           <hr />
-          <h1 className="text-xl font-bold text-[#ff6801] pt-5">$41</h1>
-          <span className="text-sm line-through  text-gray-400">$100</span>
+          <h1 className="text-xl font-bold text-[#ff6801] pt-5">${product.price}</h1>
+          <span className="text-sm line-through  text-gray-400">${product.price + 15}</span>
           <span className="text-sm pl-2  text-gray-800">-4%</span>
 
           <div className="flex items-center gap-2 py-5">
@@ -159,10 +159,10 @@ const Product: NextPage = (product) => {
         </div>
       </div>
       <div className="text-left container mx-auto bg-white my-6 p-10">
-        <h1 className="text-md font-semibold py-3 bg-slate-50">
-          Product details of detailsssssssss
+        <h1 className="text-md font-semibold  bg-slate-50 py-3">
+          Product details of {product.model}
         </h1>
-        <p className="lg:w-4/5">hreeeeeeeeeeeee</p>
+        <p className="lg:w-4/5">{product.description}</p>
       </div>
     </div>
   );
@@ -194,7 +194,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      product
+      product:product
     },
   };
 };
