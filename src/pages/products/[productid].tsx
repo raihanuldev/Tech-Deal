@@ -181,21 +181,31 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-// Corrected getStaticProps function
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { params } = context;
-  const productid = params?.productid as string;
-  
-  if (!productid) {
-    throw new Error('Invalid product id');
-  }
-  
-  const res = await fetch(`http://localhost:5000/products/${productid}`);
-  const product = await res.json();
+  try {
+    const { params } = context;
+    const productid = params?.productid as string;
+    
+    if (!productid) {
+      throw new Error('Invalid product id');
+    }
+    
+    const res = await fetch(`http://localhost:5000/products/${productid}`);
+    if (!res.ok) {
+      throw new Error('Failed to fetch product');
+    }
+    
+    const product: productInterface = await res.json();
 
-  return {
-    props: {
-      product:product
-    },
-  };
+    return {
+      props: {
+        product: product
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching product:', error);
+    return {
+      notFound: true, // Return 404 page
+    };
+  }
 };
