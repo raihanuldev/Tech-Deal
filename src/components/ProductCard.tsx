@@ -4,25 +4,25 @@ import Link from 'next/link';
 import React from 'react';
 
 const ProductCard: React.FC<{product:productInterface}> = ({product}) => {
+  console.log(product)
     return (
-        <Link href={`/products/{${product.id}}`}>
+        <Link href={`/products/{${product.id}}`} >
           <div className="rounded-2xl mx-4 mt-2 shadow-md hover:shadow-lg border-t-4 h-full border-[#3f0a70] cursor-pointer transition-all duration-300 p-5 text-left  ">
             
             <Image
               className="w-[300px] h-[250px] rounded-2xl  "
-              src="https://static-01.daraz.com.bd/p/9fa4b52503b23ad2cb33bfb2e3ed23aa.png"
+              src={product.img}
               alt=""
               unoptimized
               width={100}
               height={100}
             />
-            <h3 className="font-bold text-lg pt-3">Microphone</h3>
+            <h3 className="font-bold text-lg pt-3">{product.model}</h3>
             <p className="py-3">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              {product.description}
             </p>
-            <h1 className="text-xl font-bold text-[#ff6801]">$23</h1>
-            <span className="text-sm line-through  text-gray-400">$410</span>
+            <h1 className="text-xl font-bold text-[#ff6801]">${product.price}</h1>
+            <span className="text-sm line-through  text-gray-400">${500+product.price}</span>
             <span className="text-sm pl-2  text-gray-800">-45%</span>
           </div>
         </Link>
