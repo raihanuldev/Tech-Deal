@@ -3,6 +3,7 @@ export interface productInterface {
     map(arg0: (product: any) => import("react").JSX.Element): import("react").ReactNode;
     id:string,
     seller: string,
+    _id:string,
     verified:boolean,
     resalePrice:number,
     originalPrice:number,

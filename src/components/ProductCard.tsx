@@ -6,7 +6,7 @@ import React from 'react';
 const ProductCard: React.FC<{product:productInterface}> = ({product}) => {
   console.log(product)
     return (
-        <Link href={`/products/{${product.id}}`} >
+        <Link href={`/products/{${product._id}}`} >
           <div className="rounded-2xl mx-4 mt-2 shadow-md hover:shadow-lg border-t-4 h-full border-[#3f0a70] cursor-pointer transition-all duration-300 p-5 text-left  ">
             
             <Image
