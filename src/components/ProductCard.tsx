@@ -4,9 +4,8 @@ import Link from 'next/link';
 import React from 'react';
 
 const ProductCard: React.FC<{product:productInterface}> = ({product}) => {
-  console.log(product._id)
     return (
-        <Link href={`/products/662a5e4e5ab844f35ab06b7a`} >
+        <Link href={`/products/${product._id}`} >
           <div className="rounded-2xl mx-4 mt-2 shadow-md hover:shadow-lg border-t-4 h-full border-[#3f0a70] cursor-pointer transition-all duration-300 p-5 text-left  ">
             
             <Image
