@@ -11,7 +11,7 @@ const Login: NextPage = () => {
   const { data: session } = useSession<boolean>();
   console.log(session)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void; target: any; }) => {
     e.preventDefault();
     console.log(e)
     const form = e.target;
@@ -101,7 +101,7 @@ const Login: NextPage = () => {
 
             <div className="mt-7">
                 <div className="flex justify-center items-center">
-                    <label className="mr-2" >Don't have an account?</label>
+                    <label className="mr-2" >Don t have an account?</label>
 
                     <Link className=" text-[#260991] transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105" href='/singup'>Register</Link>
 

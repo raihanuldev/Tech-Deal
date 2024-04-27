@@ -7,7 +7,7 @@ import { UserInfoInterface } from '@/interface/UserInfoInterface';
 const SingUp: NextPage = () => {
     const register = (event: { preventDefault: () => void; target: any; }) => {
         event.preventDefault();
-        const e = document.getElementById("dropdown");
+        const e = document.getElementById("dropdown")!;
     
         const form = event.target;
         const name = form.name.value;
