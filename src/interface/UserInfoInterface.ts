@@ -4,3 +4,5 @@ export interface UserInfoInterface {
     role:string;
     photoURL:string;
 }
+
+export type userRole = 'admin'| 'seller'|'buyer';
