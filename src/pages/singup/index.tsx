@@ -7,15 +7,12 @@ import { UserInfoInterface } from '@/interface/UserInfoInterface';
 const SingUp: NextPage = () => {
     const register = (event: { preventDefault: () => void; target: any; }) => {
         event.preventDefault();
-        const e = document.getElementById("dropdown")!;
-    
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photoUrl.value;
-        const role = e.value;
-
+        const role = form.dropdown.value;
         const userInfo:UserInfoInterface = {
           name,
           email,
