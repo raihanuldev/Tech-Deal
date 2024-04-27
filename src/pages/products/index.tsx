@@ -28,7 +28,6 @@ export const getStaticProps = async () => {
   try {
     const res = await fetch('https://tech-deal-backend-o5ta.vercel.app/products');
     // const res = await fetch('http://localhost:5000/products');
-    // const res = await fetch('fakedb.json');
     const data: productInterface[] = await res.json();
     return {
       props: {
@@ -39,7 +38,7 @@ export const getStaticProps = async () => {
     console.error('Error fetching products:', error);
     return {
       props: {
-        products: [] // Return an empty array or handle the error appropriately
+        products: [] 
       }
     };
   }
