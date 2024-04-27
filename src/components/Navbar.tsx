@@ -62,7 +62,7 @@ const Navbar: NextPage = () => {
                 <Link href="/blogs">Blog</Link>
               </li>
               <li>
-                <Link className="text-[#F07224]" href="/blogs">
+                <Link className="text-[#F07224]" href="/dashbord">
                   Dashbord
                 </Link>
               </li>
@@ -80,13 +80,16 @@ const Navbar: NextPage = () => {
           </div>
           <div className="avatar">
             <div className="w-11 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+              <Link href='/dashbord'>
               <Image
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                className="rounded-full"
-                alt="img"
-                layout="fill"
-                unoptimized
-              />
+              
+              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              className="rounded-full"
+              alt="img"
+              layout="fill"
+              unoptimized
+            />
+              </Link>
             </div>
           </div>
         </div>
