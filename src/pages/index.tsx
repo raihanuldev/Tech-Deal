@@ -4,6 +4,7 @@ import Banner from "@/components/Banner";
 import CategoriesProducts from "@/components/Categories";
 import OurCommit from "@/components/OurCommit";
 import Ads from "@/components/ads/Ads";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,6 +15,7 @@ export default function Home() {
       <Ads/>
       <OurCommit/>
       <CategoriesProducts/>
+      <Footer/>
     </div>
   );
 }

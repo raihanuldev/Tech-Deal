@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
 import { productInterface } from "@/interface/ProductInterface";
+import Footer from "@/components/Footer";
 
 const ProductsPage: NextPage<{products:productInterface}> = ({products  }) => {
   console.log(products);
@@ -17,6 +18,7 @@ const ProductsPage: NextPage<{products:productInterface}> = ({products  }) => {
           products.map((product) => <ProductCard key={product.id} product={product}/>)
         }
       </div>
+      <Footer/>
     </div>
   );
 };
