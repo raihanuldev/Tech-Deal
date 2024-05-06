@@ -9,9 +9,9 @@ const CategoriesProducts: NextPage = () => {
     { name: "laptop", imageUrl: "https://m.media-amazon.com/images/I/715isFdkQVL._AC_SX679_.jpg" },
     { name: "camera", imageUrl: "https://media.istockphoto.com/id/185278433/photo/black-digital-slr-camera-in-a-white-background.jpg?s=1024x1024&w=is&k=20&c=UjIzN8-KrVm1urSdQdwmfsy2Iiln2Si6AZozCx5F6dM=" },
     { name: "watch", imageUrl: "https://m.media-amazon.com/images/I/610FHtXsfnL._AC_SX679_.jpg" },
-    { name: "headphone", imageUrl: "https://dnamcomputer.web.app/static/media/headphones.949f1c42646cafb4bfd3.jpg" },
+    // { name: "headphone", imageUrl: "https://dnamcomputer.web.app/static/media/headphones.949f1c42646cafb4bfd3.jpg" },
     { name: "smartphone", imageUrl: "https://m.media-amazon.com/images/I/612yrAXpo-L._AC_SX679_.jpg" },
-    { name: "monitor", imageUrl: "http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSTWCrtltGP56upxmamr6xulMM3Eb2aMVhVAHpPW90KAQRchm-fxRuuRhzqgNdd0tmt8YgUHy7EycWGF-5bM2w" }
+    // { name: "monitor", imageUrl: "http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSTWCrtltGP56upxmamr6xulMM3Eb2aMVhVAHpPW90KAQRchm-fxRuuRhzqgNdd0tmt8YgUHy7EycWGF-5bM2w" }
   ];
 
   return (
