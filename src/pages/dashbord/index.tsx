@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
-import { NextPage } from 'next';
-import { userRole } from '@/interface/UserInfoInterface';
+import React, { useState } from "react";
+import { NextPage } from "next";
+import { userRole } from "@/interface/UserInfoInterface";
+import SellerDashbord from "@/components/dashbord/SellerDashbord";
+import BuyerDashbord from "@/components/dashbord/BuyerDashbord";
+import AdminDashbord from "@/components/dashbord/AdminDashbord";
 
 const Dashbord: NextPage = () => {
-    const [userRole,setUserRole] = useState<userRole>("admin")
+  const [userRole, setUserRole] = useState<userRole>("seller");
 
-    if (userRole == 'admin'){
-        return  <h1>Hello this is Admin Dashbord</h1>
-    }
-    if (userRole == 'seller'){
-        return <h1>Hello This is Seller Dashbord</h1>
-    }
-    if (userRole == 'buyer'){
-        return <h1>Hello This is Buyer Dasbord</h1>
-    }
+  if (userRole == "admin") {
+    return <AdminDashbord />;
+  }
+  if (userRole == "seller") {
+    return <SellerDashbord />;
+  }
+  if (userRole == "buyer") {
+    return <BuyerDashbord />;
+  }
 };
 
 export default Dashbord;
