@@ -1,11 +1,19 @@
-import React from 'react';
+import React from "react";
 
 const AdminDashbord = () => {
-    return (
-        <div>
-            <h1>This is Admin Dashbord</h1>
-        </div>
-    );
+  return (
+    <div>
+      <div className="main-hr flex items-center pt-10 px-2 lg:px-12 text-center">
+        <hr className="hr-tag border-gray-300 border-2 w-full rounded-md" />
+        <label className="hr-tag block font-medium text-lg text-gray-800 w-96">
+          <span className="btn btn-accent btn-sm tracking-[2px] outline-dashed">
+            Dashbord| Admin
+          </span>
+        </label>
+        <hr className="hr-tag border-gray-300 border-2 w-full" />
+      </div>
+    </div>
+  );
 };
 
 export default AdminDashbord;
