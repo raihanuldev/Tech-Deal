@@ -7,7 +7,7 @@ import { productInterface } from "@/interface/ProductInterface";
 import Footer from "@/components/Footer";
 
 const ProductsPage: NextPage<{products:productInterface}> = ({products  }) => {
-  console.log(products);
+  // console.log(products);
   const [btnDisable, setbtnDisable] = useState<boolean>(true);
   
   return (
