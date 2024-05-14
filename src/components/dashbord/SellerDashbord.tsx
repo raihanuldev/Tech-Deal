@@ -15,7 +15,7 @@ const SellerDashbord = () => {
         <hr className="hr-tag border-gray-300 border-2 w-full" />
       </div>
       <div className="mx-10">
-        <Tabs className='mt-5'>
+        <Tabs>
           <TabList>
             <Tab>MY Products</Tab>
             <Tab>Orders History</Tab>
