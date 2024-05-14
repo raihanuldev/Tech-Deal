@@ -1,4 +1,6 @@
 import React from "react";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 const SellerDashbord = () => {
   return (
@@ -7,10 +9,32 @@ const SellerDashbord = () => {
         <hr className="hr-tag border-gray-300 border-2 w-full rounded-md" />
         <label className="hr-tag block font-medium text-lg text-gray-800 w-96">
           <span className="btn btn-accent btn-sm tracking-[2px] outline-dashed">
-            Dashbord| Buyer
+            Dashbord| Seller
           </span>
         </label>
         <hr className="hr-tag border-gray-300 border-2 w-full" />
+      </div>
+      <div className="mx-10">
+        <Tabs className='mt-5'>
+          <TabList>
+            <Tab>MY Products</Tab>
+            <Tab>Orders History</Tab>
+            <Tab>ADD NEW</Tab>
+          </TabList>
+
+          <TabPanel>
+            <h2>mY pRODUCRTS</h2>
+          </TabPanel>
+          <TabPanel>
+            <h2>Cart Items</h2>
+          </TabPanel>
+          <TabPanel>
+            <h2>Order History</h2>
+          </TabPanel>
+          <TabPanel>
+            <h2>Become a Seller</h2>
+          </TabPanel>
+        </Tabs>
       </div>
     </div>
   );
