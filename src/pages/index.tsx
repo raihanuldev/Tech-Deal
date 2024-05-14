@@ -14,13 +14,10 @@ export default function Home() {
   return (
     <div className="md:px-10">
       <Banner />
-      {/* <Ads/> */}
-      {/* <OurCommit/> */}
       <CategoriesProducts />
       <TrandingProducts />
       <ReviewProducts/>
       <OurCommit />
-      
       <Footer />
     </div>
   );
