@@ -6,7 +6,7 @@ import BuyerDashbord from "@/components/dashbord/BuyerDashbord";
 import AdminDashbord from "@/components/dashbord/AdminDashbord";
 
 const Dashbord: NextPage = () => {
-  const [userRole, setUserRole] = useState<userRole>("admin");
+  const [userRole, setUserRole] = useState<userRole>("buyer");
 
   if (userRole == "admin") {
     return <AdminDashbord />;

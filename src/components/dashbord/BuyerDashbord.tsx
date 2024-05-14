@@ -1,4 +1,6 @@
 import React from "react";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 const BuyerDashbord = () => {
   return (
@@ -12,7 +14,25 @@ const BuyerDashbord = () => {
         </label>
         <hr className="hr-tag border-gray-300 border-2 w-full" />
       </div>
-      <h1>this is Buyer Dashbord</h1>
+      <div className="mx-10">
+        <Tabs>
+          <TabList>
+            <Tab>Manage Cart</Tab>
+            <Tab>Orders History</Tab>
+            <Tab>Become a Seller</Tab>
+          </TabList>
+
+          <TabPanel>
+            <h2>Cart Items</h2>
+          </TabPanel>
+          <TabPanel>
+            <h2>Order History</h2>
+          </TabPanel>
+          <TabPanel>
+            <h2>Become a Seller</h2>
+          </TabPanel>
+        </Tabs>
+      </div>
     </div>
   );
 };
