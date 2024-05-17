@@ -8,12 +8,8 @@ import Image from "next/image";
 
 const Login: NextPage = () => {
     
-  const { data: session } = useSession<boolean>();
-  console.log(session)
-
   const handleSubmit = (e: { preventDefault: () => void; target: any; }) => {
     e.preventDefault();
-    console.log(e)
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value; 
@@ -85,14 +81,14 @@ const Login: NextPage = () => {
                 <hr className="hr-tag border-gray-300 border-1 w-full" />
             </div>
             <div className='social flex min-h-fit items-center justify-center py-1'>
-                <div onClick={() => signIn("google")} className="glass mx-2 lg:w-28 btn btn-outline w-20 hover:bg-[#260991]">
+                <div  className="glass mx-2 lg:w-28 btn btn-outline w-20 hover:bg-[#260991]">
                     <button><FaGoogle /></button>
 
                 </div>
                 <div className="glass mx-2 btn btn-outline lg:w-28 w-20 hover:bg-[#260991]">
                     <button><FaFacebook /></button>
                 </div>
-                <div onClick={() => signIn("github")}
+                <div 
                 className="btn mx-2 lg:w-28 btn-outline glass w-20 hover:bg-[#260991]">
                     <button><FaGithub /></button>
 
