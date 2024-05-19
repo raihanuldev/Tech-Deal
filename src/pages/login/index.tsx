@@ -5,15 +5,16 @@ import { Session } from "inspector";
 import Link from "next/link";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa6";
 import Image from "next/image";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "@/firebase/firebase.auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { UserInfoInterface } from "@/interface/UserInfoInterface";
 
 const Login: NextPage = () => {
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const notify = ()=> toast("login succefully")
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
   const handleSubmit = (e: { preventDefault: () => void; target: any }) => {
     e.preventDefault();
     const form = e.target;
@@ -23,6 +24,35 @@ const Login: NextPage = () => {
     signInWithEmailAndPassword(email, password)
     notify()
     form.reset();
+  };
+  const handleGoogle = async () => {
+    try {
+      const result = await signInWithGoogle();
+      if (result?.user) {
+        const userInfo: UserInfoInterface = {
+          name: result.user.displayName || '',
+          email: result.user.email || '',
+          role: 'seller',
+          photoURL: result.user.photoURL || 'https://media.istockphoto.com/id/1393750072/vector/flat-white-icon-man-for-web-design-silhouette-flat-illustration-vector-illustration-stock.jpg?s=612x612&w=0&k=20&c=s9hO4SpyvrDIfELozPpiB_WtzQV9KhoMUP9R9gVohoU=',
+        };
+
+        const res = await fetch('http://localhost:5000/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userInfo),
+        });
+        if (res.ok) {
+          notify();
+          console.log('User information saved to database');
+        } else {
+          console.error('Failed to save user information to database');
+        }
+      }
+    } catch (e) {
+      console.error(e);
+    }
   };
   if (loading) {
     return <p>Loading...</p>;
@@ -93,7 +123,7 @@ const Login: NextPage = () => {
           </div>
           <div className="social flex min-h-fit items-center justify-center py-1">
             <div className="glass mx-2 lg:w-28 btn btn-outline w-20 hover:bg-[#260991]">
-              <button>
+              <button onClick={handleGoogle}>
                 <FaGoogle />
               </button>
             </div>
