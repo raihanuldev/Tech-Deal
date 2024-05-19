@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { FaCartPlus } from "react-icons/fa6";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
+import auth from "@/firebase/firebase.auth";
 
 const Navbar: NextPage = () => {
+  const [user, loading, error] = useAuthState(auth);
+  const [signOut] = useSignOut(auth);
+
+  useEffect(() => {
+    if (user) {
+      console.log("Current user:", user);
+    }
+  }, [user]);
+
   return (
     <header className="border-b border-black bg-[#382778] md:px-10 text-white">
       <div className="navbar">
@@ -63,33 +74,50 @@ const Navbar: NextPage = () => {
               </li>
               <li>
                 <Link className="text-[#F07224]" href="/dashbord">
-                  Dashbord
+                  Dashboard
                 </Link>
               </li>
+              {user && (
+                <li>
+                  <button onClick={async () => {
+                    await signOut();
+                  }}>
+                    Logout
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         </div>
-        {/* img and cart  */}
+        {/* img and cart */}
         <div className="navbar-end">
           <div className="">
-            
-            
-            <div className="badge">1</div>   
-            <FaCartPlus className="w-16 h-9 mr-3 text-red-400">
-            </FaCartPlus>
+            <div className="badge">1</div>
+            <FaCartPlus className="w-16 h-9 mr-3 text-red-400" />
           </div>
           <div className="avatar">
             <div className="w-11 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <Link href='/dashbord'>
-              <Image
-              
-              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              className="rounded-full"
-              alt="img"
-              layout="fill"
-              unoptimized
-            />
-              </Link>
+              {user ? (
+                <Link href="/dashbord">
+                  <Image
+                    src={user.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
+                    className="rounded-full"
+                    alt="User avatar"
+                    layout="fill"
+                    unoptimized
+                  />
+                </Link>
+              ) : (
+                <Link href="/login">
+                  <Image
+                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    className="rounded-full"
+                    alt="Default avatar"
+                    layout="fill"
+                    unoptimized
+                  />
+                </Link>
+              )}
             </div>
           </div>
         </div>
