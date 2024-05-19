@@ -72,11 +72,18 @@ const Navbar: NextPage = () => {
               <li>
                 <Link href="/blogs">Blog</Link>
               </li>
-              <li>
+             
+              {user ? (
+                <li>
                 <Link className="text-[#F07224]" href="/dashbord">
                   Dashboard
                 </Link>
               </li>
+              ): (<li>
+              <Link className="text-[#cecbdf]" href="/login">
+                Login
+              </Link>
+            </li>)}
               {user && (
                 <li>
                   <button onClick={async () => {
@@ -100,6 +107,7 @@ const Navbar: NextPage = () => {
               {user ? (
                 <Link href="/dashbord">
                   <Image
+                  title="Dashbord"
                     src={user.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
                     className="rounded-full"
                     alt="User avatar"
@@ -110,6 +118,7 @@ const Navbar: NextPage = () => {
               ) : (
                 <Link href="/login">
                   <Image
+                  title="Login now"
                     src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                     className="rounded-full"
                     alt="Default avatar"

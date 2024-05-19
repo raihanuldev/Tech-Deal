@@ -31,9 +31,6 @@ const SellerDashbord = () => {
           <TabPanel>
             <h2>Order History</h2>
           </TabPanel>
-          <TabPanel>
-            <h2>Become a Seller</h2>
-          </TabPanel>
         </Tabs>
       </div>
     </div>

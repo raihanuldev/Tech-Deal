@@ -10,6 +10,7 @@ import auth from "@/firebase/firebase.auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { UserInfoInterface } from "@/interface/UserInfoInterface";
+import { useRouter } from "next/router";
 
 const Login: NextPage = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
