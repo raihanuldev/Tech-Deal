@@ -1,6 +1,10 @@
 import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import AllProducts from "./adminComponets/AllProducts";
+import AllUsers from "./adminComponets/AllUsers";
+import PayementsInfoAdmin from "./adminComponets/PayementsInfoAdmin";
+import ReportedItems from "./adminComponets/ReportedItems";
 
 const AdminDashbord = () => {
   return (
@@ -24,16 +28,16 @@ const AdminDashbord = () => {
           </TabList>
 
           <TabPanel>
-            <h2>products</h2>
+            <AllProducts/>
           </TabPanel>
           <TabPanel>
-            <h2>Seller Info</h2>
+            <AllUsers/>
           </TabPanel>
           <TabPanel>
-            <h2>Payments all</h2>
+            <PayementsInfoAdmin/>
           </TabPanel>
           <TabPanel>
-            <h2>Reported Items</h2>
+            <ReportedItems/>
           </TabPanel>
         </Tabs>
       </div>

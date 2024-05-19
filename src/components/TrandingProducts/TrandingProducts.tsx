@@ -5,7 +5,7 @@ import ProductCard from "../ProductCard";
 
 const TrandingProducts: NextPage = () => {
   const [products, setProducts] = useState([]);
-  console.log(products);
+  // console.log(products);
 
   useEffect(() => {
     fetch("http://localhost:5000/products")
