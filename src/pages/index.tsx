@@ -16,7 +16,7 @@ export default function Home() {
       <Banner />
       <CategoriesProducts />
       <TrandingProducts />
-      <ReviewProducts/>
+      {/* <ReviewProducts/> */}
       <OurCommit />
       <Footer />
     </div>
