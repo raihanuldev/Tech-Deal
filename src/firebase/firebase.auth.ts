@@ -1,8 +1,5 @@
 import { getAuth } from 'firebase/auth';
 import { initializeApp, FirebaseApp } from "firebase/app";
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 interface FirebaseConfig {
   apiKey: string;
@@ -15,16 +12,16 @@ interface FirebaseConfig {
 
 // Your web app's Firebase configuration
 const firebaseConfig: FirebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY || "",
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN || "",
-  projectId: process.env.FIREBASE_PROJECT_ID || "",
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET || "",
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID || "",
-  appId: process.env.FIREBASE_APP_ID || ""
+  apiKey: "AIzaSyACgFoIsBXZL7nh-MMWu5JLZH8qvLusesQ",
+  authDomain: "tech-deal-fe500.firebaseapp.com",
+  projectId: "tech-deal-fe500",
+  storageBucket: "tech-deal-fe500.appspot.com",
+  messagingSenderId: "789476601072",
+  appId: "1:789476601072:web:36c6037095406b8d34e635"
 };
 
 // Initialize Firebase
 const app: FirebaseApp = initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+const auth = getAuth(app)
 export default auth;
