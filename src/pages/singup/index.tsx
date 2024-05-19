@@ -15,7 +15,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
   
 const SignUp: NextPage = () => {
-  const notify = () => toast("Login Succesfully");
+  const notify = () => toast("Account Created Succesfully");
   const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
   const [signInWithFacebook, facebookUser, facebookLoading, facebookError] = useSignInWithFacebook(auth);
@@ -91,7 +91,9 @@ const SignUp: NextPage = () => {
 
     form.reset();
   };
-
+if(loading){
+  return <p>Loading........</p>
+}
   return (
     <div>
       <div className="flex min-h-full w-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
