@@ -1,29 +1,57 @@
 import React from "react";
-import { 
-  useCreateUserWithEmailAndPassword, 
-  useSignInWithGoogle, 
-  useSignInWithFacebook, 
-  useSignInWithGithub 
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+  useSignInWithFacebook,
+  useSignInWithGithub,
 } from "react-firebase-hooks/auth";
 import { NextPage } from "next";
 import Link from "next/link";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { UserInfoInterface } from "@/interface/UserInfoInterface";
 import auth from "@/firebase/firebase.auth";
-
+import { UserCredential } from "firebase/auth";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+  
 const SignUp: NextPage = () => {
+  const notify = () => toast("Login Succesfully");
   const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
   const [signInWithFacebook, facebookUser, facebookLoading, facebookError] = useSignInWithFacebook(auth);
   const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
-  const handleGoogle = async()=>{
+
+  const handleGoogle = async () => {
     try {
-      await signInWithGoogle();
+      const result = await signInWithGoogle();
+      if (result?.user) {
+        const userInfo: UserInfoInterface = {
+          name: result.user.displayName || '',
+          email: result.user.email || '',
+          role: 'seller', // by defult google account create will be count as a se;ller
+          photoURL: result.user.photoURL || 'https://media.istockphoto.com/id/1393750072/vector/flat-white-icon-man-for-web-design-silhouette-flat-illustration-vector-illustration-stock.jpg?s=612x612&w=0&k=20&c=s9hO4SpyvrDIfELozPpiB_WtzQV9KhoMUP9R9gVohoU=',
+        };
+
+        const res = await fetch('http://localhost:5000/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userInfo),
+        });
+        if (res.ok) {
+          notify()
+          console.log('User information saved to database');
+        } else {
+          console.error('Failed to save user information to database');
+        }
+      }
     } catch (e) {
       console.error(e);
     }
-  }
-  const register = (event: { preventDefault: () => void; target: any }) => {
+  };
+
+  const register = async (event: { preventDefault: () => void; target: any }) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -31,14 +59,36 @@ const SignUp: NextPage = () => {
     const password = form.password.value;
     const photo = form.photoUrl.value;
     const role = form.dropdown.value;
+
     const userInfo: UserInfoInterface = {
       name,
       email,
       role,
       photoURL: photo,
     };
-    console.log({ userInfo });
-    createUserWithEmailAndPassword(email, password);
+
+    try {
+      const response = await createUserWithEmailAndPassword(email, password);
+      if (response?.user) {
+        const res = await fetch('http://localhost:5000/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userInfo),
+        });
+        if (res.ok) {
+
+          console.log(res,'User information saved to database');
+          notify()
+        } else {
+          console.error('Failed to save user information to database');
+        }
+      }
+    } catch (e) {
+      console.error('Error registering user: ', e);
+    }
+
     form.reset();
   };
 
@@ -169,6 +219,7 @@ const SignUp: NextPage = () => {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 };
