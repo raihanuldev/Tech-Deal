@@ -11,7 +11,7 @@ const AllProducts = () => {
     })
   
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto ">
       <table className="table">
         {/* head */}
         <thead>

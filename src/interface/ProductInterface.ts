@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
 
 export interface productInterface {
+    sellerEmail: ReactNode;
     map(arg0: (product: any) => import("react").JSX.Element): import("react").ReactNode;
     id:string,
     seller: string,
