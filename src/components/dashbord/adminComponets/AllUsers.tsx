@@ -15,7 +15,7 @@ const AllUsers = () => {
         <table className="table">
           <thead>
             <tr>
-              <th></th>
+              <th>Unique ID</th>
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
@@ -25,7 +25,7 @@ const AllUsers = () => {
           </thead>
           <tbody>
           {
-            users.map((user,index)=> <UserRow key={index} user={user} index={index+1}/>)
+            users.map((user,index)=> <UserRow key={index} user={user}/>)
           }
           </tbody>
           

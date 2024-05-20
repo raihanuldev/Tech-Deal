@@ -2,11 +2,11 @@ import { AdminUserInfo,  } from "@/interface/UserInfoInterface";
 import { NextPage } from "next";
 import React from "react";
 
-const UserRow:NextPage<{user:AdminUserInfo; index:Number}> = ({user,index}) => {
+const UserRow:NextPage<{user:AdminUserInfo;}> = ({user,}) => {
 
   return (
     <tr>
-      <th>{index}</th>
+      <th>{user._id}</th>
       <td>{user.name}</td>
       <td>{user.email}</td>
       <td>{user.role}</td>
