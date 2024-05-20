@@ -1,7 +1,11 @@
+import dynamic from "next/dynamic";
 import React from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import MyProducts from "./sellerComponents/MyProducts";
+
+const MyProducts = dynamic(()=> import('./sellerComponents/MyProducts'),{
+  ssr:false,
+})
 
 const SellerDashbord = () => {
   return (
