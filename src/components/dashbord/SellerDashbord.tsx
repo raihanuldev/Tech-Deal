@@ -12,6 +12,12 @@ const AddNewProduct = dynamic(
     ssr: false,
   }
 );
+const OrderHistorySellerDashbord = dynamic(
+  () => import("./sellerComponents/OrderHistorySellerDashbord"),
+  {
+    ssr: false,
+  }
+);
 const SellerDashbord = () => {
   return (
     <div>
@@ -28,18 +34,18 @@ const SellerDashbord = () => {
         <Tabs>
           <TabList>
             <Tab>MY Products</Tab>
-            <Tab>Orders History</Tab>
             <Tab>ADD NEW</Tab>
+            <Tab>Orders Activity</Tab>
           </TabList>
 
           <TabPanel>
             <MyProducts />
           </TabPanel>
           <TabPanel>
-            <h2>Cart Items</h2>
+            <AddNewProduct />
           </TabPanel>
           <TabPanel>
-            <AddNewProduct />
+            <OrderHistorySellerDashbord />
           </TabPanel>
         </Tabs>
       </div>
