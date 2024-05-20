@@ -1,6 +1,7 @@
 import React from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import MyProducts from "./sellerComponents/MyProducts";
 
 const SellerDashbord = () => {
   return (
@@ -23,7 +24,7 @@ const SellerDashbord = () => {
           </TabList>
 
           <TabPanel>
-            <h2>mY pRODUCRTS</h2>
+            <MyProducts/>
           </TabPanel>
           <TabPanel>
             <h2>Cart Items</h2>
