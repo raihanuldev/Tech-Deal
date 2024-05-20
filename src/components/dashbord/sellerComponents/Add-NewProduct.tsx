@@ -4,6 +4,9 @@ const AddNewProduct = () => {
     return (
         <div>
             <h1>Add new Products</h1>
+            <p>
+                hello iam Raihan Sharif From Bangladesh
+            </p>
         </div>
     );
 };

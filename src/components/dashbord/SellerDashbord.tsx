@@ -3,10 +3,15 @@ import React from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
-const MyProducts = dynamic(()=> import('./sellerComponents/MyProducts'),{
-  ssr:false,
-})
-
+const MyProducts = dynamic(() => import("./sellerComponents/MyProducts"), {
+  ssr: false,
+});
+const AddNewProduct = dynamic(
+  () => import("./sellerComponents/Add-NewProduct"),
+  {
+    ssr: false,
+  }
+);
 const SellerDashbord = () => {
   return (
     <div>
@@ -28,13 +33,13 @@ const SellerDashbord = () => {
           </TabList>
 
           <TabPanel>
-            <MyProducts/>
+            <MyProducts />
           </TabPanel>
           <TabPanel>
             <h2>Cart Items</h2>
           </TabPanel>
           <TabPanel>
-            <h2>Order History</h2>
+            <AddNewProduct />
           </TabPanel>
         </Tabs>
       </div>
