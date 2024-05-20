@@ -1,14 +1,24 @@
 import auth from '@/firebase/firebase.auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useForm } from 'react-hook-form';
+import { Form, useForm } from 'react-hook-form';
 
 const AddNewProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [user] = useAuthState(auth);
     const onSubmit = (data: any) => {
         // Add code here to handle form submission, e.g., send data to an API
-        console.log(data);
+        // console.log(data);
+        const product = {
+            ...data,
+            seller:user?.displayName,
+            sellerEmail:user?.email,
+            verified:true,
+            id: Math.random()
+            
+        }
+        console.log(product);
+        
     };
 
     return (
