@@ -1,49 +1,39 @@
+import auth from "@/firebase/firebase.auth";
 import Image from "next/image";
-import React from "react";
+import React, { use, useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import ProductRowSeller from "./ProductRowSeller";
 
 const MyProducts = () => {
+  const [user] = useAuthState(auth);
+  const [products,setProducts] = useState([])
+  
+  useEffect(()=>{
+    fetch(`http://localhost:5000/api/seller/myproducts/${user?.email}`)
+    .then(res=>res.json())
+    .then(data=>setProducts(data))
+  },[user])
+  if (products.length === 0){
+    return <p className="text-center text-2xl">Loading........</p>
+  }
   return (
     <div className="overflow-x-auto">
+      <p className="text-center text-2xl font-semibold">My Products: {products.length}</p>
       <table className="table">
         {/* head */}
         <thead>
-          <tr>
+        <tr>
             
             <th>Name</th>
             <th>Product info</th>
-            <th>Total Sell</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {/* row 1 */}
-          <tr>
-        
-            <td>
-              <div className="flex items-center gap-3">
-                <div className="avatar">
-                  <div className="mask mask-squircle w-12 h-12">
-                    <Image alt="product-img" src='https://m.media-amazon.com/images/I/61G9Yr3n6rL._AC_SX679_.jpg' width={100} height={100} unoptimized/>
-                  </div>
-                </div>
-                <div>
-                  <div className="font-bold">HP XYZ WS</div>
-                  <div className="text-sm opacity-50">Chittagong</div>
-                </div>
-              </div>
-            </td>
-            <td>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, nobis.
-              <br />
-              <span className="badge badge-ghost badge-sm">
-                Lapptop
-              </span>
-            </td>
-            <td>90</td>
-            <th>
-              <button className="btn btn-ghost btn-primary">Edit</button>
-            </th>
-          </tr>
+          {
+            products.map((product,index)=> <ProductRowSeller key={index} product={product}/>)
+          }
+          
         </tbody>
         {/* foot */}
         <tfoot>
@@ -55,3 +45,4 @@ const MyProducts = () => {
 };
 
 export default MyProducts;
+
