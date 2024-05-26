@@ -9,7 +9,7 @@ import auth from "@/firebase/firebase.auth";
 const Navbar: NextPage = () => {
   const [user, loading, error] = useAuthState(auth);
   const [signOut] = useSignOut(auth);
-
+  
   useEffect(() => {
     if (user) {
       console.log("Current user:", user);
@@ -98,10 +98,10 @@ const Navbar: NextPage = () => {
         </div>
         {/* img and cart */}
         <div className="navbar-end">
-          <div className="">
-            <div className="badge">1</div>
+          {/* <div className="">
+            <div className="badge">{totalCartItems?.length}</div>
             <FaCartPlus className="w-16 h-9 mr-3 text-red-400" />
-          </div>
+          </div> */}
           <div className="avatar">
             <div className="w-11 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               {user ? (
@@ -119,7 +119,7 @@ const Navbar: NextPage = () => {
                 <Link href="/login">
                   <Image
                   title="Login now"
-                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    src="https://cdn-icons-png.flaticon.com/512/152/152532.png"
                     className="rounded-full"
                     alt="Default avatar"
                     layout="fill"

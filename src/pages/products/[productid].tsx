@@ -15,6 +15,7 @@ const Product: NextPage<{product: productInterface}> = ({product}) => {
   console.log(product);
 
   const handleAddToCart =async()=>{
+    if(!user) return;
     const SelectedItem = {...product,buyerEmail:user?.email}
     const existingCartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
     const addNewCart = [...existingCartItems,SelectedItem]
