@@ -4,13 +4,24 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import { productInterface } from "@/interface/ProductInterface";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "@/firebase/firebase.auth";
 
 const Product: NextPage<{product: productInterface}> = ({product}) => {
+  const [user] = useAuthState(auth);
   const router = useRouter();
   const { productid } = router.query;
   console.log(router);
   console.log(product);
-  const user = true;
+
+  const handleAddToCart =async()=>{
+    const SelectedItem = {...product,buyerEmail:user?.email}
+    const existingCartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    const addNewCart = [...existingCartItems,SelectedItem]
+    localStorage.setItem("cartItems",JSON.stringify(addNewCart))
+    console.log(addNewCart);
+  }
+
   return (
     <div>
       <div className="lg:flex gap-16 items-center bg-[#f5f5f5] p-10">
@@ -122,7 +133,7 @@ const Product: NextPage<{product: productInterface}> = ({product}) => {
               </Link>
             )}
             {user ? (
-              <button>
+              <button onClick={handleAddToCart}>
                 <label
                   className="bg-[#f57224] p-3 cursor-pointer lg:px-16 px-6 rounded-sm text-white"
                   htmlFor="buyModal"

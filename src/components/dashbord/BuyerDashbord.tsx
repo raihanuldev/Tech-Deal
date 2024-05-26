@@ -1,6 +1,9 @@
 import React from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import ManageCart from "./buyerComponents/ManageCart";
+import OrderHistory from "./buyerComponents/OrderHistory";
+import RequestForSeller from "./buyerComponents/RequestForSeller";
 
 const BuyerDashbord = () => {
   return (
@@ -23,13 +26,13 @@ const BuyerDashbord = () => {
           </TabList>
 
           <TabPanel>
-            <h2>Cart Items</h2>
+            <ManageCart/>
           </TabPanel>
           <TabPanel>
-            <h2>Order History</h2>
+            <OrderHistory/>
           </TabPanel>
           <TabPanel>
-            <h2>Become a Seller</h2>
+            <RequestForSeller/>
           </TabPanel>
         </Tabs>
       </div>
