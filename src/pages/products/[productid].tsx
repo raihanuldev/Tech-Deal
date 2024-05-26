@@ -6,21 +6,29 @@ import Link from "next/link";
 import { productInterface } from "@/interface/ProductInterface";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "@/firebase/firebase.auth";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/store/slice/cartSlice";
 
 const Product: NextPage<{product: productInterface}> = ({product}) => {
   const [user] = useAuthState(auth);
+  const dispatch = useDispatch();
   const router = useRouter();
   const { productid } = router.query;
   console.log(router);
   console.log(product);
 
   const handleAddToCart =async()=>{
-    if(!user) return;
-    const SelectedItem = {...product,buyerEmail:user?.email}
-    const existingCartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-    const addNewCart = [...existingCartItems,SelectedItem]
-    localStorage.setItem("cartItems",JSON.stringify(addNewCart))
-    console.log(addNewCart);
+
+    if (user){
+      const cartItem = {
+        ...product,
+        buyerEmail:user.email
+      };
+      dispatch(addToCart(cartItem));
+    }
+    else{
+      router.push('/login')
+    }
   }
 
   return (

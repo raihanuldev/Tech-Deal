@@ -5,11 +5,14 @@ import Image from "next/image";
 import { FaCartPlus } from "react-icons/fa6";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import auth from "@/firebase/firebase.auth";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
 const Navbar: NextPage = () => {
   const [user, loading, error] = useAuthState(auth);
   const [signOut] = useSignOut(auth);
-  
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+console.log(cartItems);
   useEffect(() => {
     if (user) {
       console.log("Current user:", user);
@@ -98,10 +101,12 @@ const Navbar: NextPage = () => {
         </div>
         {/* img and cart */}
         <div className="navbar-end">
-          {/* <div className="">
-            <div className="badge">{totalCartItems?.length}</div>
+        <div className="relative">
+            <div className="badge badge-primary absolute -top-2 -right-2">
+              {cartItems.length}
+            </div>
             <FaCartPlus className="w-16 h-9 mr-3 text-red-400" />
-          </div> */}
+          </div>
           <div className="avatar">
             <div className="w-11 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               {user ? (
