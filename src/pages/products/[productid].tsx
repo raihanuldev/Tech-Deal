@@ -1,3 +1,4 @@
+"use-client"
 import React from "react";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
@@ -8,8 +9,11 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "@/firebase/firebase.auth";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/store/slice/cartSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Product: NextPage<{product: productInterface}> = ({product}) => {
+  const notify = () => toast("Product Added On Cart Succesfully");
   const [user] = useAuthState(auth);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -25,6 +29,7 @@ const Product: NextPage<{product: productInterface}> = ({product}) => {
         buyerEmail:user.email
       };
       dispatch(addToCart(cartItem));
+      notify()
     }
     else{
       router.push('/login')
@@ -185,6 +190,7 @@ const Product: NextPage<{product: productInterface}> = ({product}) => {
         </h1>
         <p className="lg:w-4/5">{product.description}</p>
       </div>
+      <ToastContainer/>
     </div>
   );
 };
