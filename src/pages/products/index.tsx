@@ -6,6 +6,7 @@ import ProductCard from "@/components/ProductCard";
 import { productInterface } from "@/interface/ProductInterface";
 import Footer from "@/components/Footer";
 import Pagination from "@/components/pagination/Pagination";
+import { FaSearch } from "react-icons/fa";
 
 const ProductsPage: NextPage<{ products: productInterface }> = ({
   products,
@@ -13,6 +14,17 @@ const ProductsPage: NextPage<{ products: productInterface }> = ({
   const [btnDisable, setbtnDisable] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
+  const [searchFiled, setSearchFiled] = useState('');
+  const [searchData, setSearchData] = useState([])
+
+  const handleSearch = () => {
+      // Fetch data based on the search field value
+      fetch(`http://localhost:5000/Searcg-products?query=${searchFiled}`)
+          .then(res => res.json())
+          .then(data => {
+              setSearchData(data);
+          });
+  }
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
@@ -26,6 +38,10 @@ const ProductsPage: NextPage<{ products: productInterface }> = ({
   const endIndex = startIndex + productsPerPage;
   return (
     <div className="md:px-10 bg-[#f9f6fd] h-screen">
+      <div className="flex w-2/3 mx-auto">
+                <input type="text" onChange={(e) => setSearchFiled(e.target.value)} className="input my-4 w-full bg-[#bfcdda] " placeholder="Search Product" />
+                <button onClick={handleSearch} className="btn btn-outline ml-2 mt-4"> <FaSearch></FaSearch> </button>
+            </div>
       {/* simple Cart static */}
       <div className="grid md:grid-cols-3">
         {products.map((product) => (
