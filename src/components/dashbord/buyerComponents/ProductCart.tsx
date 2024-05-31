@@ -12,9 +12,9 @@ const ProductCart: React.FC<{ product: productInterface }> = ({ product }) => {
   const dispatch = useDispatch();
   const notify = () => toast("Item Remove from Cart Succesfully!");
 
-  const handleRemoveFromCart = async() => {
-    dispatch(removeFromCart(product));
-    notify()
+  const handleRemoveFromCart = async () => {
+    dispatch(removeFromCart(product._id));
+    notify();
   };
   return (
     <div>

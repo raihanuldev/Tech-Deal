@@ -6,7 +6,7 @@ import { FaCartPlus } from "react-icons/fa6";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import auth from "@/firebase/firebase.auth";
 import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
+import { RootState } from "../redux/store";
 
 const Navbar: NextPage = () => {
   const [user, loading, error] = useAuthState(auth);

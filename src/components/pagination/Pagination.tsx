@@ -11,7 +11,7 @@ const Pagination: NextPage<{currentPage:any,totalPages:any,onPageChange:any,onNu
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (page:number) => {
     if (page >= 1 && page <= totalPages) {
       onPageChange(page);
     }

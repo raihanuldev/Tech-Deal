@@ -8,13 +8,13 @@ import { productInterface } from "@/interface/ProductInterface";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "@/firebase/firebase.auth";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/redux/slice/cartSlice";
+import { CartItem, addToCart } from "@/redux/slice/cartSlice";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
 interface cartInterface extends productInterface {
-  buyerEmail:string|null
+  buyerEmail:string|undefined
 }
 const Product: NextPage<{product: productInterface}> = ({product}) => {
   const notify = () => toast("Product Added On Cart Succesfully");
@@ -25,7 +25,7 @@ const Product: NextPage<{product: productInterface}> = ({product}) => {
   const handleAddToCart =async()=>{
 
     if (user?.email){
-      const cartItem:cartInterface = {
+      const cartItem:any = {
         ...product,
         buyerEmail:user.email
       };
