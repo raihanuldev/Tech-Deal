@@ -23,7 +23,8 @@ const initialState: CartState = {
         }
       },
       removeFromCart: (state, action: PayloadAction<string>) => {
-        state.items = state.items.filter(item => item.id !== action.payload);
+        console.log(action.payload);
+        state.items = state.items.filter(item => item._id !== action.payload._id);
       },
       clearCart: (state) => {
         state.items = [];
