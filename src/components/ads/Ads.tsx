@@ -26,7 +26,7 @@ export default Ads;
 
 // export const getStaticProps = async () => {
 //   const res = await fetch('https://tech-deal-backend-o5ta.vercel.app/products');
-//   // const res = await fetch("http://localhost:5000/products");
+//   // const res = await fetch("https://tech-deal-backend-o5ta.vercel.app/products");
 //   const data: productInterface[] = await res.json();
 //   return {
 //     props: {

@@ -21,7 +21,7 @@ const ProductsPage: NextPage<{ products: productInterface[] }> = ({
   const handleSearch = () => {
     // Fetch data based on the search field value
     setIsSearching(true);
-    fetch(`http://localhost:5000/Search-products?query=${searchField}`)
+    fetch(`https://tech-deal-backend-o5ta.vercel.app/Search-products?query=${searchField}`)
       .then((res) => res.json())
       .then((data) => {
         setSearchData(data);
@@ -85,7 +85,7 @@ export default ProductsPage;
 export const getStaticProps = async () => {
   try {
     // const res = await fetch('https://tech-deal-backend-o5ta.vercel.app/products');
-    const res = await fetch("http://localhost:5000/products");
+    const res = await fetch("https://tech-deal-backend-o5ta.vercel.app/products");
     const data: productInterface[] = await res.json();
     return {
       props: {

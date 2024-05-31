@@ -6,16 +6,20 @@ const ProductRow: NextPage<{ product: productInterface; index: number }> = ({
   product,
   index,
 }) => {
+  const openModal = () => {
+    const modal = document.getElementById("my_modal_5") as HTMLDialogElement | null;
+    if (modal) {
+      modal.showModal();
+    }
+  };
+
   return (
     <tr>
       <th>{index}</th>
       <td>{product.model}</td>
       <td>{product.location}</td>
       <td>
-        <button
-          className="btn"
-          onClick={() => document.getElementById("my_modal_5").showModal()}
-        >
+        <button className="btn" onClick={openModal}>
           View
         </button>
       </td>
@@ -28,7 +32,7 @@ const ProductRow: NextPage<{ product: productInterface; index: number }> = ({
           <p className="text-2xl py-4 font-semibold">Product Seller Info: </p>
           <p className="text-xl">Seller Email: {product?.sellerEmail}</p>
           <p className="text-xl">Seller: {product.seller}</p>
-          <p className="text-2xl py-4 font-semibold">Product deatils: </p>
+          <p className="text-2xl py-4 font-semibold">Product details: </p>
           <p className="text-xl">Total Sold: {product.used}</p>
           <p className="text-xl"> {product.description}</p>
 

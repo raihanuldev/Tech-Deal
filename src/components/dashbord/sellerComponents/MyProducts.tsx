@@ -9,7 +9,7 @@ const MyProducts = () => {
   const [products,setProducts] = useState([])
   
   useEffect(()=>{
-    fetch(`http://localhost:5000/api/seller/myproducts/${user?.email}`)
+    fetch(`https://tech-deal-backend-o5ta.vercel.app/api/seller/myproducts/${user?.email}`)
     .then(res=>res.json())
     .then(data=>setProducts(data))
   },[user])
