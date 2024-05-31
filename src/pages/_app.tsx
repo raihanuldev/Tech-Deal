@@ -3,7 +3,8 @@ import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import Navbar from "@/components/Navbar";
 import { Provider } from "react-redux";
-import { store } from "@/redux/store";
+import { store, persistor } from "@/redux/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 export default function App({
   Component,
@@ -12,10 +13,10 @@ export default function App({
   return (
     <SessionProvider session={session}>
       <Provider store={store}>
-        <div>
+        <PersistGate loading={null} persistor={persistor}>
           <Navbar />
           <Component {...pageProps} />
-        </div>
+        </PersistGate>
       </Provider>
     </SessionProvider>
   );
