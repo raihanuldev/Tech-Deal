@@ -4,18 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const ProductCart:React.FC<{product:productInterface}> = ({product}) => {
+const ProductCart: React.FC<{ product: productInterface }> = ({ product }) => {
   const user = true;
   const dispatch = useDispatch();
+  const notify = () => toast("Item Remove from Cart Succesfully!");
 
- const handleRemoveFromCart=()=>{
-  dispatch(removeFromCart(product));
- }
+  const handleRemoveFromCart = async() => {
+    dispatch(removeFromCart(product));
+    notify()
+  };
   return (
     <div>
       <div className="lg:flex gap-16 items-center bg-[#f5f5f5] p-10 rounded-lg">
-       
         <div className=" text-left">
           <h1 className="lg:text-2xl text-lg">{product.model}</h1>
           <div className="flex items-center justify-start gap-2 py-2">
@@ -109,12 +112,16 @@ const ProductCart:React.FC<{product:productInterface}> = ({product}) => {
                 Buy
               </label>
             </button>
-              <button onClick={handleRemoveFromCart} className="bg-[#2abbe8] p-3 lg:px-16 px-6 rounded-sm text-white">
-                Remove From Cart
-              </button>
+            <button
+              onClick={handleRemoveFromCart}
+              className="bg-[#2abbe8] p-3 lg:px-16 px-6 rounded-sm text-white"
+            >
+              Remove From Cart
+            </button>
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
