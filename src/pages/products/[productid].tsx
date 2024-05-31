@@ -12,19 +12,20 @@ import { addToCart } from "@/redux/slice/cartSlice";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+interface cartInterface extends productInterface {
+  buyerEmail:string|null
+}
 const Product: NextPage<{product: productInterface}> = ({product}) => {
   const notify = () => toast("Product Added On Cart Succesfully");
   const [user] = useAuthState(auth);
   const dispatch = useDispatch();
   const router = useRouter();
   const { productid } = router.query;
-  // console.log(router);
-  // console.log(product);
-
   const handleAddToCart =async()=>{
 
-    if (user){
-      const cartItem = {
+    if (user?.email){
+      const cartItem:cartInterface = {
         ...product,
         buyerEmail:user.email
       };
