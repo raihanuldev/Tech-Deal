@@ -5,6 +5,7 @@ import Image from 'next/image';
 const Footer: NextPage = () => {
   return (
     <footer className="footer  text-white p-10 px-14  bg-[#2b2b58] rounded-lg my-3">
+      
         <div>
           <Image className="max-w-[200px]" src='https://img.freepik.com/premium-vector/abstract-modern-ecommerce-logo-design-colorful-gradient-happy-shopping-logo-template_467913-990.jpg' width={100} height={100} alt="" unoptimized/>
           <p>

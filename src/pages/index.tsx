@@ -18,6 +18,16 @@ export default function Home() {
       <TrandingProducts />
       {/* <ReviewProducts/> */}
       <OurCommit />
+
+      <Image
+        className="mx-auto my-4"
+        height={1000}
+        width={2000}
+        unoptimized
+        src="https://securepay.sslcommerz.com/public/image/SSLCommerz-Pay-With-logo-All-Size-03.png"
+        alt="payment"
+      />
+      
       <Footer />
     </div>
   );
