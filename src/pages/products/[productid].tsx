@@ -8,7 +8,7 @@ import { productInterface } from "@/interface/ProductInterface";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "@/firebase/firebase.auth";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/store/slice/cartSlice";
+import { addToCart } from "@/redux/slice/cartSlice";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,8 +18,8 @@ const Product: NextPage<{product: productInterface}> = ({product}) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const { productid } = router.query;
-  console.log(router);
-  console.log(product);
+  // console.log(router);
+  // console.log(product);
 
   const handleAddToCart =async()=>{
 
