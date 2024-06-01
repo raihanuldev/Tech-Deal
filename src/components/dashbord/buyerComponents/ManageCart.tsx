@@ -9,7 +9,7 @@ const ManageCart = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
 
   return (
-    <div className="grid md:grid-cols-3 space-x-1 space-y-1">
+    <div className="my-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2" >
       {cartItems?.map((cart) => (
         <ProductCart key={cart._id} product={cart} />
       ))}

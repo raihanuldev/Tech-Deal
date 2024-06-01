@@ -17,7 +17,7 @@ const ProductCart: React.FC<{ product: productInterface }> = ({ product }) => {
     notify();
   };
   return (
-    <div>
+    <div className="h-auto p-4 bg-[#f5f5f5] rounded-lg flex flex-col justify-between">
       <div className="lg:flex gap-16 items-center bg-[#f5f5f5] p-10 rounded-lg">
         <div className=" text-left">
           <h1 className="lg:text-2xl text-lg">{product.model}</h1>
