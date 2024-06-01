@@ -1,0 +1,19 @@
+.react-tabs__tab--selected {
+    border-bottom: 2px solid #1c9cea;
+    color: #1c9cea;
+  }
+  
+  .react-tabs__tab {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .react-tabs__tab:hover {
+    color: #1c9cea;
+  }
+  
+  .react-tabs__tab--selected:hover {
+    color: #1c9cea;
+  }
+  

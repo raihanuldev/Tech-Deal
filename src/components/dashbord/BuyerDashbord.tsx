@@ -4,6 +4,7 @@ import "react-tabs/style/react-tabs.css";
 import ManageCart from "./buyerComponents/ManageCart";
 import OrderHistory from "./buyerComponents/OrderHistory";
 import RequestForSeller from "./buyerComponents/RequestForSeller";
+import "./custom-tabs.css"; // Custom CSS file to override React Tabs styles
 
 const BuyerDashbord = () => {
   return (
@@ -12,27 +13,33 @@ const BuyerDashbord = () => {
         <hr className="hr-tag border-gray-300 border-2 w-full rounded-md" />
         <label className="hr-tag block font-medium text-lg text-gray-800 w-96">
           <span className="btn btn-accent btn-sm tracking-[2px] outline-dashed">
-            Dashbord| Buyer
+            Dashbord | Buyer
           </span>
         </label>
         <hr className="hr-tag border-gray-300 border-2 w-full" />
       </div>
       <div className="mx-10">
         <Tabs>
-          <TabList>
-            <Tab>Manage Cart</Tab>
-            <Tab>Orders History</Tab>
-            <Tab>Become a Seller</Tab>
+          <TabList className="flex border-b-2 border-gray-200">
+            <Tab className="px-4 py-2 cursor-pointer hover:text-blue-500">
+              Manage Cart
+            </Tab>
+            <Tab className="px-4 py-2 cursor-pointer hover:text-blue-500">
+              Orders History
+            </Tab>
+            <Tab className="px-4 py-2 cursor-pointer hover:text-blue-500">
+              Become a Seller
+            </Tab>
           </TabList>
 
           <TabPanel>
-            <ManageCart/>
+            <ManageCart />
           </TabPanel>
           <TabPanel>
-            <OrderHistory/>
+            <OrderHistory />
           </TabPanel>
           <TabPanel>
-            <RequestForSeller/>
+            <RequestForSeller />
           </TabPanel>
         </Tabs>
       </div>
