@@ -24,23 +24,23 @@ const BuyerDashbord = () => {
             <Tab className="px-4 py-2 cursor-pointer hover:text-blue-500">
               Manage Cart
             </Tab>
-            <Tab className="px-4 py-2 cursor-pointer hover:text-blue-500">
+            {/* <Tab className="px-4 py-2 cursor-pointer hover:text-blue-500">
               Orders History
             </Tab>
             <Tab className="px-4 py-2 cursor-pointer hover:text-blue-500">
               Become a Seller
-            </Tab>
+            </Tab> */}
           </TabList>
 
           <TabPanel>
             <ManageCart />
           </TabPanel>
-          <TabPanel>
+          {/* <TabPanel>
             <OrderHistory />
           </TabPanel>
           <TabPanel>
             <RequestForSeller />
-          </TabPanel>
+          </TabPanel> */}
         </Tabs>
       </div>
     </div>

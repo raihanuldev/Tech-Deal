@@ -18,6 +18,7 @@ interface cartInterface extends productInterface {
 }
 const Product: NextPage<{product: productInterface}> = ({product}) => {
   const notify = () => toast("Product Added On Cart Succesfully");
+  const BuyNotify = () => toast("Product Succesfully Order Place");
   const [user] = useAuthState(auth);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -37,6 +38,20 @@ const Product: NextPage<{product: productInterface}> = ({product}) => {
     }
   }
 
+  const handleBuyNow = async () => {
+    BuyNotify();
+    const NewProduct = {product, buyerEmail: user?.email };
+    console.log(NewProduct);
+    fetch("http://localhost:5000/process-order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(NewProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   return (
     <div>
       <div className="lg:flex gap-16 items-center bg-[#f5f5f5] p-10">
@@ -132,7 +147,7 @@ const Product: NextPage<{product: productInterface}> = ({product}) => {
 
           <div className="flex items-center gap-2 py-5">
             {user ? (
-              <button>
+              <button onClick={handleBuyNow}>
                 <label
                   className="bg-[#2abbe8] p-3 cursor-pointer lg:px-16 px-6 rounded-sm text-white"
                   htmlFor="buyModal"

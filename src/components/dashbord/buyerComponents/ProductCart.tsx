@@ -1,17 +1,36 @@
+import auth from "@/firebase/firebase.auth";
 import { productInterface } from "@/interface/ProductInterface";
 import { removeFromCart } from "@/redux/slice/cartSlice";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ProductCart: React.FC<{ product: productInterface }> = ({ product }) => {
+  const [user] = useAuthState(auth);
   const dispatch = useDispatch();
   const notify = () => toast("Item Removed from Cart Successfully!");
+  const BuyNotify = () => toast("Order Place Successfully!");
 
   const handleRemoveFromCart = async () => {
     dispatch(removeFromCart(product._id));
     notify();
+  };
+  const handleBuyNow = async () => {
+    BuyNotify();
+    const NewProduct = {product, buyerEmail: user?.email };
+    console.log(NewProduct);
+    fetch("http://localhost:5000/process-order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(NewProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    handleRemoveFromCart();
   };
 
   return (
@@ -99,7 +118,10 @@ const ProductCart: React.FC<{ product: productInterface }> = ({ product }) => {
         <span className="text-sm pl-2 text-gray-800">-4%</span>
       </div>
       <div className="flex items-center justify-between gap-2 py-5">
-        <button className="bg-[#2abbe8] p-3 w-full rounded-sm text-white">
+        <button
+          onClick={handleBuyNow}
+          className="bg-[#2abbe8] p-3 w-full rounded-sm text-white"
+        >
           <label
             className="cursor-pointer w-full text-center"
             htmlFor="buyModal"
@@ -113,8 +135,8 @@ const ProductCart: React.FC<{ product: productInterface }> = ({ product }) => {
         >
           Remove From Cart
         </button>
+        <ToastContainer />
       </div>
-      <ToastContainer />
     </div>
   );
 };
