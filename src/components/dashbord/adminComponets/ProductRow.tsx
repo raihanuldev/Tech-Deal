@@ -1,5 +1,6 @@
 import { productInterface } from "@/interface/ProductInterface";
 import { NextPage } from "next";
+import Link from "next/link";
 import React from "react";
 
 const ProductRow: NextPage<{ product: productInterface; index: number }> = ({
@@ -19,9 +20,9 @@ const ProductRow: NextPage<{ product: productInterface; index: number }> = ({
       <td>{product.model}</td>
       <td>{product.location}</td>
       <td>
-        <button className="btn" onClick={openModal}>
+        <Link href={`/products/${product._id}`} className="btn">
           View
-        </button>
+        </Link>
       </td>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
