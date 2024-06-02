@@ -13,7 +13,7 @@ const Dashbord: NextPage = () => {
 
   useEffect(()=>{
     if(user){
-      fetch(`http://localhost:5000/api/auth/${user.email}`).then(res=>res.json()).then(data=>setUserRole(data.role))
+      fetch(`https://tech-deal-backend-o5ta.vercel.app/api/auth/${user.email}`).then(res=>res.json()).then(data=>setUserRole(data.role))
     }
   },[user])
   if (userRole == "admin") {

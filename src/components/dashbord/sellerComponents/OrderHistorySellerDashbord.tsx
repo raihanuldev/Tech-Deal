@@ -7,7 +7,7 @@ const OrderHistorySellerDashbord = () => {
     const [orders,setOrders] = useState([]);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/orders/${user?.email}`).then(res=>res.json()).then(data=>setOrders(data))
+        fetch(`https://tech-deal-backend-o5ta.vercel.app/orders/${user?.email}`).then(res=>res.json()).then(data=>setOrders(data))
     },[user])
     return (
         <div>
