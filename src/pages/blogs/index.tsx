@@ -17,28 +17,29 @@ const Blogs: NextPage = () => {
 
                     <div className="grid gap-12 lg:grid-cols-2">
                         <div className="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
-                            <Image unoptimized src="https://www.freecodecamp.org/news/content/images/size/w2000/2022/02/how-to-manage-state-react.png" alt="art cover" loading="lazy" width="1000" height="667" className="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl" />
+                            <Image unoptimized src="https://media.geeksforgeeks.org/wp-content/uploads/20240430132028/What-is-System-Design.webp" alt="art cover" loading="lazy" width="1000" height="667" className="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl" />
                             <div className="sm:w-7/12 pl-0 p-5">
                                 <div className="space-y-2">
                                     <div className="space-y-4">
-                                        <h4 className="text-2xl font-semibold text-cyan-900">What are the different ways to manage a state in a React application</h4>
-                                        <p className="text-gray-600">Managing state in your React apps isn’t as simple as using useState or useReducer.
-
-                                            Not only are there are a lot of different kinds of state, but there often dozens of ways of managing each kind. Which should you choose?
-
-                                            In this guide, we will uncover the several kinds of state in your React apps that you might not be aware of, plus how to manage them in the most effective way....</p>
+                                        <h4 className="text-2xl font-semibold text-cyan-900">What is Systems Design – Learn System Design
+</h4>
+                                        <p>Systems Design is the process of defining the architecture, components, modules, interfaces, and data for a system to satisfy specified requirements. It involves translating user requirements into a detailed blueprint that guides the implementation phase. The goal is to create a well-organized and efficient structure that meets the intended purpose while considering factors like scalability, maintainability, and performance.</p>
                                     </div>
                                     <Link href="/blogs" className="block w-max text-cyan-600">Read more</Link>
                                 </div>
                             </div>
                         </div>
                         <div className="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
-                            <Image unoptimized src="https://miro.medium.com/max/1042/1*ULmG2uiAlgQksjj-brp2fw.jpeg" alt="art cover" loading="lazy" width="1000" height="667" className="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl" />
+                            <Image unoptimized src="https://media.geeksforgeeks.org/wp-content/uploads/20221117160614/systemdevelopmentinfographic1.png" alt="art cover" loading="lazy" width="1000" height="667" className="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl" />
                             <div className="sm:w-7/12 pl-0 p-5">
                                 <div className="space-y-2">
                                     <div className="space-y-4">
-                                        <h4 className="text-2xl font-semibold text-cyan-900">How does prototypical inheritance work</h4>
-                                        <p className="text-gray-600">The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects.It is a method by which an object can inherit the properties and methods of another object.Traditionally, in order to get and set the[[Prototype]]of an object, we use Object...</p>
+                                        <h4 className="text-2xl font-semibold text-cyan-900">Why learn System Design?</h4>
+                                        <p className="text-gray-600">In any development process, be it Software or any other tech, the most important stage is Design. Without the designing phase, you cannot jump to the implementation or the testing part. The same is the case with the System as well.
+
+Systems Design not only is a vital step in the development of the system but also provides the backbone to handle exceptional scenarios because it represents the business logic of software. 
+
+</p>
                                     </div>
                                     <Link href="/blogs" className="block w-max text-cyan-600">Read more</Link>
                                 </div>
@@ -51,12 +52,12 @@ const Blogs: NextPage = () => {
 
                     <div className="grid gap-12 lg:grid-cols-2">
                         <div className="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
-                            <Image unoptimized src="https://i.ytimg.com/vi/lj5nnGa_DIw/maxresdefault.jpg" alt="art cover" loading="lazy" width="1000" height="667" className="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl" />
+                            <Image unoptimized src="https://media.geeksforgeeks.org/wp-content/uploads/20230122231919/Yellow-Greyscale-Script-Landscape-Photography-Blog-Banner-(1).jpg" alt="art cover" loading="lazy" width="1000" height="667" className="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl" />
                             <div className="sm:w-7/12 pl-0 p-5">
                                 <div className="space-y-2">
                                     <div className="space-y-4">
-                                        <h4 className="text-2xl font-semibold text-cyan-900">What is a unit test? Why should we write unit tests?</h4>
-                                        <p className="text-gray-600">The main objective of unit testing is to isolate written code to test and determine if it works as intended.Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages...</p>
+                                        <h4 className="text-2xl font-semibold text-cyan-900">Architecture of a System</h4>
+                                        <p className="text-gray-600">Architecture is a critical aspect of designing a system, as it sets the foundation for how the system will function and be built. It is the process of making high-level decisions about the organization of a system, including the selection of hardware and software components, the design of interfaces, and the overall system structure.</p>
                                     </div>
                                     <Link href="/blogs" className="block w-max text-cyan-600">Read more</Link>
                                 </div>
