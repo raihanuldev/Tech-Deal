@@ -3,6 +3,7 @@ import React from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "../dashbord/custom-tabs.css"; 
+import ManageCart from "./buyerComponents/ManageCart";
 
 const MyProducts = dynamic(() => import("./sellerComponents/MyProducts"), {
   ssr: false,
@@ -42,7 +43,7 @@ const SellerDashbord = () => {
               ADD NEW
             </Tab>
             <Tab className="px-4 py-2 cursor-pointer hover:text-blue-500">
-              Orders Activity
+              Manage Cart
             </Tab>
           </TabList>
 
@@ -53,7 +54,7 @@ const SellerDashbord = () => {
             <AddNewProduct />
           </TabPanel>
           <TabPanel>
-            <OrderHistorySellerDashbord />
+            <ManageCart />
           </TabPanel>
         </Tabs>
       </div>
