@@ -4,7 +4,7 @@ import "react-tabs/style/react-tabs.css";
 import ManageCart from "./buyerComponents/ManageCart";
 import OrderHistory from "./buyerComponents/OrderHistory";
 import RequestForSeller from "./buyerComponents/RequestForSeller";
-import "./custom-tabs.css"; // Custom CSS file to override React Tabs styles
+import "./custom-tabs.module.css"; // Custom CSS file to override React Tabs styles
 
 const BuyerDashbord = () => {
   return (

@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import React from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import "../dashbord/custom-tabs.css"; 
+import "../dashbord/custom-tabs.module.css"; 
 import ManageCart from "./buyerComponents/ManageCart";
 
 const MyProducts = dynamic(() => import("./sellerComponents/MyProducts"), {

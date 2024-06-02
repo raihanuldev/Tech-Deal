@@ -1,7 +1,7 @@
 import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import "./custom-tabs.css"; 
+import "./custom-tabs.module.css"; 
 import AllProducts from "./adminComponets/AllProducts";
 import AllUsers from "./adminComponets/AllUsers";
 import PayementsInfoAdmin from "./adminComponets/PayementsInfoAdmin";
