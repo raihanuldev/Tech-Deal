@@ -9,7 +9,7 @@ import auth from "@/firebase/firebase.auth";
 
 const Dashbord: NextPage = () => {
   const [user] = useAuthState(auth)
-  const [userRole, setUserRole] = useState<userRole>("seller");
+  const [userRole, setUserRole] = useState<userRole>("buyer");
 
   useEffect(()=>{
     if(user){
