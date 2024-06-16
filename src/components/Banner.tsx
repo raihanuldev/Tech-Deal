@@ -14,7 +14,7 @@ import Image from 'next/image';
 
 const Banner: NextPage = () => {
   return (
-    <div className=' my-2 h-[65vh]'>
+    <div className=' my-3 h-[65vh]'>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         <SwiperSlide>
             <Image src='https://www.ryans.com/storage/sliders/Acer-aspire-5-gamingbanner_1713586180.webp' className='rounded-lg  ' alt='Banner1'  width={80} height={30} unoptimized/>

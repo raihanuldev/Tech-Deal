@@ -16,7 +16,7 @@ const CategoriesProducts: NextPage = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold my-4">Categories</h1>
+      <h1 className="text-3xl font-bold my-6">Categories</h1>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {categories.map((category, index) => (
           <Link key={index} href={`/products/category/${category.name}`}>

@@ -14,7 +14,7 @@ const TrandingProducts: NextPage = () => {
   }, []);
   return (
     <>
-      <h1 className="text-3xl font-bold my-4">Our Tranding Products</h1>
+      <h1 className="text-3xl font-bold my-6">Our Tranding Products</h1>
       <div className="grid md:grid-cols-4 space-y-2">
         {
             products.map((product,index) => <ProductCard key={index} product={product}/>).splice(0,4)

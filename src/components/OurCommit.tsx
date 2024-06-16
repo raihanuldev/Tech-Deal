@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const OurCommit: NextPage = () => {
   return (
-    <section className="flex w-[80%] justify-center pl-5 mx-auto mt-20 gap-5 divide-x">
+    <section className="flex w-[80%] justify-center pl-5 mx-auto my-20 gap-5 divide-x">
       <div className="flex flex-col justify-center items-center text-center space-y-2">
         <Image
           src="https://flone.jamstacktemplates.dev/assets/img/icon-img/support-1.png"
