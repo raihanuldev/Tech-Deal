@@ -3,10 +3,16 @@ import { NextPage } from 'next';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 
 const Blogs: NextPage = () => {
   return (
     <div>
+        <Head>
+        <title>Blogs | Tech Deal</title>
+        <meta name="description" content="Welcome to our home page. Discover our products and services." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
             <div className="py-16 ">
                 <div className="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
                     <div className="mb-12 my-6 space-y-2 text-center">

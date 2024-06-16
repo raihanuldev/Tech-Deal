@@ -13,6 +13,7 @@ import auth from "@/firebase/firebase.auth";
 import { UserCredential } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Head from "next/head";
   
 const SignUp: NextPage = () => {
   const notify = () => toast("Account Created Succesfully");
@@ -96,6 +97,11 @@ if(loading){
 }
   return (
     <div>
+       <Head>
+        <title>SingUp | Tech Deal</title>
+        <meta name="description" content="Welcome to our home page. Discover our products and services." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <div className="flex min-h-full w-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full p-6 bg-white rounded-lg border border-gray-200 shadow-md max-w-md space-y-8">
           <div>

@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { CartItem, addToCart } from "@/redux/slice/cartSlice";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Head from "next/head";
 
 
 interface cartInterface extends productInterface {
@@ -54,6 +55,11 @@ const Product: NextPage<{product: productInterface}> = ({product}) => {
   };
   return (
     <div>
+      <Head>
+        <title>{product.model} | Tech Deal</title>
+        <meta name="description" content="Welcome to our home page. Discover our products and services." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <div className="lg:flex gap-16 items-center bg-[#f5f5f5] p-10">
         <div className="lg:w-4/12 p-5">
           <Image

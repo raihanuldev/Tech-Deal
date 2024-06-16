@@ -7,6 +7,7 @@ import { productInterface } from "@/interface/ProductInterface";
 import Footer from "@/components/Footer";
 import Pagination from "@/components/pagination/Pagination";
 import { FaSearch } from "react-icons/fa";
+import Head from "next/head";
 
 const ProductsPage: NextPage<{ products: productInterface[] }> = ({
   products,
@@ -50,6 +51,11 @@ const ProductsPage: NextPage<{ products: productInterface[] }> = ({
 
   return (
     <div className="md:px-10 bg-[#f9f6fd] h-screen">
+      <Head>
+        <title>Products | Tech Deal</title>
+        <meta name="description" content="Welcome to our home page. Discover our products and services." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <div className="flex w-2/3 mx-auto">
         <input
           type="text"
