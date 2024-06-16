@@ -9,6 +9,7 @@ import "./custom-tabs.module.css"; // Custom CSS file to override React Tabs sty
 const BuyerDashbord = () => {
   return (
     <div>
+      
       <div className="main-hr flex items-center pt-10 px-2 lg:px-12 text-center">
         <hr className="hr-tag border-gray-300 border-2 w-full rounded-md" />
         <label className="hr-tag block font-medium text-lg text-gray-800 w-96">
