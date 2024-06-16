@@ -28,6 +28,7 @@ E-Shop is an Online Shop Web Application that facilitates buying and selling pro
 - **Frontend:**
   - TypeScript
   - Next.js
+  - Redux(state-Management)
 
 - **Backend:**
   - Node.js
